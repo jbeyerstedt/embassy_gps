@@ -2,7 +2,7 @@ use esp_hal::gpio::{Level, Output, OutputConfig, OutputPin};
 
 use crate::gps::GpsOutput;
 
-/// ESP32-C3 pin bundle required by the L76K hardware driver.
+/// ESP32 pin bundle required by the L76K hardware driver.
 pub struct GpsHw<REINIT, STANDBY>
 where
     REINIT: OutputPin + 'static,

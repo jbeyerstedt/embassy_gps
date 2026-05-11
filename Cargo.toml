@@ -15,10 +15,27 @@ nrf = [
     "dep:embassy-nrf",
 ]
 
-esp32c3 = [
-    "dep:esp-hal",
-    "esp-hal/esp32c3"
-]
+# internal flag: common dependencies of all ESP32 variants
+_esp = ["dep:esp-hal"]
+# build for ESP32
+esp32       = ["_esp", "esp-hal/esp32"]
+# build for ESP32-C2
+esp32c2     = ["_esp", "esp-hal/esp32c2"]
+# build for ESP32-C3
+esp32c3     = ["_esp", "esp-hal/esp32c3"]
+# build for ESP32-C5
+esp32c5     = ["_esp", "esp-hal/esp32c5"]
+# build for ESP32-C6
+esp32c6     = ["_esp", "esp-hal/esp32c6"]
+# build for ESP32-C61
+esp32c61    = ["_esp", "esp-hal/esp32c61"]
+# build for ESP32-H2
+esp32h2     = ["_esp", "esp-hal/esp32h2"]
+# build for ESP32-S2
+esp32s2     = ["_esp", "esp-hal/esp32s2"]
+# build for ESP32-S3
+esp32s3     = ["_esp", "esp-hal/esp32s3"]
+
 
 [dependencies]
 chrono = { version = "0.4", default-features = false }
