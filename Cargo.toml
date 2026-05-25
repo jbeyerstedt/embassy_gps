@@ -9,7 +9,19 @@ keywords = ["embassy", "gps", "embedded", "no-std"]
 categories = ["embedded", "no-std", "asynchronous"]
 
 [features]
-default = []
+default = ["defmt"]
+
+defmt = [
+    "dep:defmt",
+    "embassy-nrf/defmt",
+    "embassy-time/defmt",
+    "embedded-io-async/defmt",
+    "heapless/defmt",
+]
+
+log-04 = [
+    "dep:log"
+]
 
 nrf = [
     "dep:embassy-nrf",
@@ -22,11 +34,12 @@ esp32c3 = [
 
 [dependencies]
 chrono = { version = "0.4", default-features = false }
-defmt = "1"
+defmt = { version = "1", optional = true }
 embassy-futures = "0.1.2"
-embassy-nrf = { version = "0.10", optional = true, features = ["defmt", "time-driver-rtc1", "gpiote", "nrf52840"] }
-embassy-time = { version = "0.5", features = ["defmt"] }
-embedded-io-async = { version = "0.7.0", features = ["defmt"] }
-heapless = {version = "0.9.2", features = ["defmt"] }
+embassy-nrf = { version = "0.10", optional = true, features = ["time-driver-rtc1", "gpiote", "nrf52840"] }
+embassy-time = { version = "0.5", features = [] }
+embedded-io-async = { version = "0.7.0", features = [] }
+heapless = {version = "0.9.2", features = [] }
+log = { version = "0.4.27", optional = true }
 nmea = { version = "0.7.0", default-features = false, features = ["GGA", "RMC"] }
 esp-hal = { version = "1.0.0", optional = true }

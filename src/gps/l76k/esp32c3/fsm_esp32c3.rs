@@ -68,7 +68,7 @@ impl<IO: Read + Write + ErrorType> GpsFsm for L76kFsm<IO, EspOutput<'static>, Es
             GpsState::Running => match self.gps.run().await {
                 Ok(event) => Ok(Some(event)),
                 Err(err) => {
-                    defmt::warn!("gps uart error");
+                    crate::log_warn!("gps uart error");
                     self.state = GpsState::Recover;
                     Err(err)
                 }

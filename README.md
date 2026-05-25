@@ -19,6 +19,15 @@ The crate is split into generic traits and module-specific implementations, so a
 
 Right now, L76K is implemented; additional drivers can be added with the same pattern.
 
+## Feature Flags
+
+Feature flags are used to differentiate between targets and to select a logging library:
+
+- `defmt` (default): Log using `defmt`
+- `log-04`: Log using `log` v0.4
+- `nrf`: Target nRF processor
+- `esp32-c3`: Target ESP32-C3 processor
+
 ## Small example (nRF)
 
 Pseudo-code (board/UART init omitted) showing the normal flow:
