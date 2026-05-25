@@ -6,8 +6,9 @@
 
 - Async GPS abstractions (`GpsDriver`, `GpsFsm`, and shared event/error types).
 - A working implementation for the **L76K** module.
-- Platform glue for current targets (`nrf` and `esp*` features).
-  Note: Select a specific ESP target by using one of the feature flags beginning with `esp`, e.g. `esp32c3`.
+- Platform glue for current targets (`nrf` and `esp` features).
+  Note: A specific esp target (e.g. `esp32c3`) needs to be selected at `esp-hal` by the application using this library.
+  But this should be the default project setup anyways.
 - PCAS command encoding for runtime GPS configuration.
 
 ## Architecture
