@@ -6,7 +6,9 @@
 
 - Async GPS abstractions (`GpsDriver`, `GpsFsm`, and shared event/error types).
 - A working implementation for the **L76K** module.
-- Platform glue for current targets (`nrf` and `esp32c3` features).
+- Platform glue for current targets (`nrf` and `esp` features).
+  Note: A specific esp target (e.g. `esp32c3`) needs to be selected at `esp-hal` by the application using this library.
+  But this should be the default project setup anyways.
 - PCAS command encoding for runtime GPS configuration.
 
 ## Architecture
@@ -73,7 +75,7 @@ Same flow, but with ESP HAL types:
 
 ```rust
 use embassy_gps::gps::GpsFsm;
-use embassy_gps::gps::l76k::esp32c3::{GpsHw, L76kFsm};
+use embassy_gps::gps::l76k::esp::{GpsHw, L76kFsm};
 use embassy_gps::types::GpsEvent;
 
 async fn gps_task(hw: GpsHw<impl esp_hal::gpio::OutputPin, impl esp_hal::gpio::OutputPin>) {

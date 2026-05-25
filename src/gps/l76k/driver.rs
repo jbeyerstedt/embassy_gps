@@ -12,7 +12,7 @@ use crate::{
 };
 
 /// Core L76K UART driver with line parsing and command TX.
-#[cfg_attr(not(any(feature = "nrf", feature = "esp32c3")), allow(dead_code))]
+#[cfg_attr(not(any(feature = "nrf", feature = "esp")), allow(dead_code))]
 pub(super) struct L76kGps<IO, RESET, STANDBY>
 where
     IO: Read + Write + ErrorType,
@@ -28,7 +28,7 @@ where
     pending: heapless::Deque<GpsEvent, 8>,
 }
 
-#[cfg_attr(not(any(feature = "nrf", feature = "esp32c3")), allow(dead_code))]
+#[cfg_attr(not(any(feature = "nrf", feature = "esp")), allow(dead_code))]
 impl<IO, RESET, STANDBY> L76kGps<IO, RESET, STANDBY>
 where
     IO: Read + Write + ErrorType,

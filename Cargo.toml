@@ -27,10 +27,7 @@ nrf = [
     "dep:embassy-nrf",
 ]
 
-esp32c3 = [
-    "dep:esp-hal",
-    "esp-hal/esp32c3"
-]
+esp = ["dep:esp-hal"]
 
 [dependencies]
 chrono = { version = "0.4", default-features = false }
